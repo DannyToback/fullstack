@@ -1,0 +1,30 @@
+.font_Raleway{
+	font-family: 'Raleway', sans-serif;
+	font-size: 72px;
+	font-stretch: expanded;
+}
+.font_Oxygen{
+	font-weight 400;
+	font-style: oblique;
+	font-family: 'Oxygen', sans-serif;
+}
+.font_Montserrat{
+	font-stretch: condensed;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+.font_Lora{
+	font-style: italic;
+	font-family: 'Lora', serif;
+}
+
+.font_Crimson_Text{
+	font-weight: 200;
+	font-family: 'Crimson Text', serif;
+}
+
+.font_Playfair_Display{
+	font-size: 10px;
+	font-family: 'Playifair Display', serif;
+}
