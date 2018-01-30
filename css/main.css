@@ -1,0 +1,60 @@
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=a5x5B0kiK0000ve++jTmr00++zD */
+                      
+/* Feel free to copy&paste color codes to your application */
+
+
+/* As hex codes */
+
+.color-primary-0 { color: #000000 }	/* Main Primary color */
+.color-primary-1 { color: #EBEBEB }
+.color-primary-2 { color: #960018 }
+.color-primary-3 { color: #000000 }
+.color-primary-4 { color: #F30026 }
+
+.color-complement-0 { color: #000000 }	/* Main Complement color */
+.color-complement-1 { color: #F4F4F4 }
+.color-complement-2 { color: #9C0008 }
+.color-complement-3 { color: #000000 }
+.color-complement-4 { color: #FB000D }
+
+
+
+/* As RGBa codes */
+
+.rgba-primary-0 { color: rgba(  0,  0,  0,1) }	/* Main Primary color */
+.rgba-primary-1 { color: rgba(235,235,235,1) }
+.rgba-primary-2 { color: rgba(150,  0, 24,1) }
+.rgba-primary-3 { color: rgba(  0,  0,  0,1) }
+.rgba-primary-4 { color: rgba(243,  0, 38,1) }
+
+.rgba-complement-0 { color: rgba(  0,  0,  0,1) }	/* Main Complement color */
+.rgba-complement-1 { color: rgba(244,244,244,1) }
+.rgba-complement-2 { color: rgba(156,  0,  8,1) }
+.rgba-complement-3 { color: rgba(  0,  0,  0,1) }
+.rgba-complement-4 { color: rgba(251,  0, 13,1) }
+
+body {
+  background-color: #00173E;
+}
+
+h1 {
+  color: #54A6F5;
+}
+h2 {
+  color: #FFDCA9;
+}
+h3 {
+  color: #7CBBF8;
+}
+h4 {
+  color: #2F90EE;
+}
+h5 {
+  color: #0E79E1;;
+}
+
+p {
+  color: #FFB64B;
+}
