@@ -1,26 +1,30 @@
 /* CSS - Cascading Style Sheet */
 
-Header{
+.Header{
 
 }
 
-AboutMe {
-  align-items: flex-start;
+.AboutMe {
+  display: flex;
+  float: left;
 }
 
-MyFace{
-  align-items: flex-end;
+#MyFace{
+  display: flex;
+  float: right;
+  width: 200px;
+  height: 200px;
 }
 
-OtherCourseWork{
+.OtherCourseWork{
 
 }
 
-Portfolio{
+.Portfolio{
 
 }
 
-AboutTheCourse{
+.AboutTheCourse{
 
 }
 
