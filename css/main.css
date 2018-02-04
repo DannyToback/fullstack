@@ -1,31 +1,141 @@
 /* CSS - Cascading Style Sheet */
 
-.Header{
-
+section.Header{
+  display flex;
+  width: 100%;
+  border-style: solid;
+  border-radius: 1px;
 }
 
-.AboutMe {
+section.AboutMe{
+  border-style: solid;
+  border-radius: 1px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+h3.AboutMe{
+  display:flex;
+  float: left;
+}
+
+p.AboutMe{
   display: flex;
   float: left;
 }
 
-#MyFace{
+#imgClass{
+  height: 50px;
+}
+
+img.AboutMe{
+  display: inline-block;
+  float: left;
+}
+
+section.OtherCourseWork{
+  border-style: solid;
+  border-radius: 1px;
+  width: 100%;
+}
+
+h3.OtherCourseWork{
   display: flex;
-  float: right;
-  width: 200px;
-  height: 200px;
+  clear:both;
 }
 
-.OtherCourseWork{
-
+h5.OtherCourseWork{
+  display: flex;
+  clear: both;
 }
 
-.Portfolio{
-
+h3.Portfolio{
+  display: flex;
+  clear:both;
 }
 
-.AboutTheCourse{
+h5.Portfolio{
+  display: flex;
+  clear:both;
+}
 
+p.Portfolio{
+  display: flex;
+  clear:both;
+}
+
+section.Portfolio{
+  border-style: solid;
+  border-radius: 1px;
+  width: 100%;
+}
+
+h3.AboutTheCourse{
+  display: flex;
+  clear:both;
+}
+
+p.AboutTheCourse{
+  display: flex;
+  clear: both;
+}
+
+section.AboutTheCourse{
+  width: 100%;
+  border-style: solid;
+  border-radius: 1px;
+}
+
+/* media queries */
+/* large screen */
+@media (min-width: 992px){
+
+  section.Header{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }section.AboutMe{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }section.MyFace{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.OtherCourseWork{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.AboutTheCourse{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.Portfolio{
+    width:33%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  section.Header{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }section.AboutMe{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }section.MyFace{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.OtherCourseWork{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.AboutTheCourse{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
+  section.Portfolio{
+    width:50%;
+    background-color:rgba(F,F,F,0.1); /*white*/
+  }
 }
 
 body {
