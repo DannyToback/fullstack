@@ -1,5 +1,9 @@
 /* CSS - Cascading Style Sheet */
 
+*{
+  box-sizing: border-box;
+}
+
 section.Header{
   display flex;
   width: 100%;
@@ -16,6 +20,7 @@ section.AboutMe{
 
 h3.AboutMe{
   display:flex;
+  clear: both;
   float: left;
 }
 
@@ -24,8 +29,14 @@ p.AboutMe{
   float: left;
 }
 
+img.AboutMe{
+  display: flex;
+  float: left;
+}
+
 #imgClass{
-  height: 50px;
+  width: 20%;
+  float: right;
 }
 
 img.AboutMe{
@@ -68,15 +79,45 @@ section.Portfolio{
   border-style: solid;
   border-radius: 1px;
   width: 100%;
+  clear: both;
+  overflow: auto;
+}
+
+.left{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.centerText{
+  text-align: center;
+}
+
+.right{
+  text-align: center;
+}
+
+.pone{
+  float:left;
+  width:100%;
+}
+.ptwo{
+  float:left;
+  width:100%;
+}
+.pthree{
+  float:right;
+  width:100%;
 }
 
 h3.AboutTheCourse{
-  display: flex;
-  clear:both;
+float: left;
 }
 
 p.AboutTheCourse{
-  display: flex;
+  float: left;
   clear: both;
 }
 
@@ -89,51 +130,93 @@ section.AboutTheCourse{
 /* media queries */
 /* large screen */
 @media (min-width: 992px){
+  .left{
+    text-align: left;
+  }
 
+  .center{
+    text-align: center;
+  }
+
+  .right{
+    text-align: right;
+  }
+  div.pone{
+    width: 33%;
+  }
+  div.ptwo{
+    width: 33%;
+  }
+  div.pthree{
+    width: 33%;
+  }
   section.Header{
-    width:33%;
+    /* width:33%; */
+    padding: 10%
     background-color:rgba(F,F,F,0.1); /*white*/
   }section.AboutMe{
-    width:33%;
+    /* width:33%; */
+    padding: 10%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }section.MyFace{
-    width:33%;
+    /* width:33%; */
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.OtherCourseWork{
-    width:33%;
+    /* width:33%; */
+    padding: 10%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.AboutTheCourse{
-    width:33%;
+    /* width:33%; */
+    padding: 10%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.Portfolio{
-    width:33%;
+    /* width:33%; */
+    padding: 10%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
 }
+
+/*ipad*/
 @media (min-width: 768px) and (max-width: 991px){
+  div.pone{
+    width: 50%;
+  }
+  div.ptwo{
+    width: 50%;
+  }
+  div.pthree{
+    width: 100%;
+  }
+
   section.Header{
-    width:50%;
+    padding: 5%;
+    /* width:50%; */
     background-color:rgba(F,F,F,0.1); /*white*/
   }section.AboutMe{
-    width:50%;
+    /* width:50%; */
+    padding: 5%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }section.MyFace{
-    width:50%;
+    /* width:50%; */
+    padding: 5%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.OtherCourseWork{
-    width:50%;
+    /* width:50%; */
+    padding: 5%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.AboutTheCourse{
-    width:50%;
+    /* width:50%; */
+    padding: 5%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
   section.Portfolio{
-    width:50%;
+    /* width:50%; */
+    padding: 5%;
     background-color:rgba(F,F,F,0.1); /*white*/
   }
 }
@@ -162,9 +245,6 @@ p {
 a{
   color: #9C0008;
 }
-
-
-
 
 .color-primary-0 { color: #000000 }	/* Main Primary color */
 .color-primary-1 { color: #EBEBEB }
