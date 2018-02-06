@@ -9,6 +9,7 @@ section.Header{
   width: 100%;
   border-style: solid;
   border-radius: 1px;
+  background-color: red;
 }
 
 section.AboutMe{
@@ -16,6 +17,8 @@ section.AboutMe{
   border-radius: 1px;
   width: 100%;
   align-items: flex-start;
+  background-color: orange;
+
 }
 
 h3.AboutMe{
@@ -48,6 +51,8 @@ section.OtherCourseWork{
   border-style: solid;
   border-radius: 1px;
   width: 100%;
+  background-color: yellow;
+
 }
 
 h3.OtherCourseWork{
@@ -81,6 +86,8 @@ section.Portfolio{
   width: 100%;
   clear: both;
   overflow: auto;
+  background-color: green;
+
 }
 
 .left{
@@ -125,6 +132,8 @@ section.AboutTheCourse{
   width: 100%;
   border-style: solid;
   border-radius: 1px;
+  background-color: blue;
+
 }
 
 /* media queries */
