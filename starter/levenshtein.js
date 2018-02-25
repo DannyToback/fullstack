@@ -1,5 +1,6 @@
 /* ref https://github.com/gustf/js-levenshtein */
 
+//returns lowest of d0 d1 d2
 function _min(d0, d1, d2, bx, ay)
 {
   return d0 < d1 || d2 < d1
@@ -11,6 +12,7 @@ function _min(d0, d1, d2, bx, ay)
           : d1 + 1;
 }
 
+//returns distance between a and b
 function distance(a, b)
 {
   if (a === b) {

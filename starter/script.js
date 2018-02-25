@@ -44,10 +44,75 @@ var names = ["Jordan Voves", "Keller Chambers", "Stefano Cobelli",
 "Junjie Jiang", "Morgan Muller", "Sarah Xu", "Aleksandar Antonov",
 "Parker Watson", "Haipu Sun", "Ryan Pencak", "Dan Kershner",
 "John Venditti", "Jacob Mendelowitz", "Dunni Adenuga", "Jeff Lee",
-"Uttam Kumaran", "Jack Hall-Tipping"]
+"Uttam Kumaran", "Jack Hall-Tipping"];
 
+var pairs = [];
+
+//Classes
+class Hamming {
+  constructor(first, second){
+    this.first = first;
+    this.second = second;
+  }
+  getDistance(){
+    return distance(first,second);
+  };
+};
+
+class Levenshtein{
+  constructor(first, second){
+    this.first = first;
+    this.second = second;
+  }
+  getDistance(){
+    return distane(first,second);
+  };
+};
 
 /* STEP 1: SORT NAMES by LAST NAME! */
+
+//Psuedocode in action
+while (names.length > 1){
+  var x = names[0];
+  var friendsOfX = [];
+
+  //Find smallest values
+  if (x[0] = /aeiou/){
+    for (j = 0; j < names.length; j ++){
+      friendsOfX.push(distance(x,names[j]))
+    }
+    //Computer Hamming to all other unpaired students
+  }
+
+  if (x[0] = /aeiou/){
+    for (k = 0; k < names.length; k ++){
+      friendsOfX.push(distance(x,names[k]))
+    }
+    //Computer LEvenshtein to all othe unpaired students
+  }
+
+  //Find Pair
+  var bestFit = friendsOfX[1];
+  var bestFitIndex = 1;
+  for (i = 2; i <friendsOfX.length; i ++){
+    if (friendsOfX[i] > bestFit){
+      bestFitIndex = i;
+      bestFit = friendsOfX[i];
+    }
+  }
+
+  //Remove pair from list
+  var winningPair = [x, names[bestFitIndex]];
+  names.splice(x,1);
+  names.splice(bestFitIndex,1);
+
+  //Push to pairs array
+  pairs.push(winningPair);
+}
+
+for (h = 0; h < pairs.length; h ++){
+  console.log(pairs[h]);
+}
 
 
 /* WHILE > 1 students are UNPAIRED
