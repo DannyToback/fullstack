@@ -50,22 +50,22 @@ var pairs = [];
 
 //Classes
 class Hamming {
-  constructor(first, second){
-    this.first = first;
-    this.second = second;
+  constructor(a, b){
+    this.a = a;
+    this.b = b;
   }
   getDistance(){
-    return distance(first,second);
+    return distance(this.a,this.b);
   };
 };
 
 class Levenshtein{
-  constructor(first, second){
-    this.first = first;
-    this.second = second;
+  constructor(a, b){
+    this.a = a;
+    this.b = b;
   }
   getDistance(){
-    return distane(first,second);
+    return distance(this.a,this.b);
   };
 };
 
@@ -75,27 +75,27 @@ class Levenshtein{
 while (names.length > 1){
   var x = names[0];
   var friendsOfX = [];
-
   //Find smallest values
-  if (x[0] = /aeiou/){
+  if (x[0].match(/[AEIOUaeiou]/)){
     for (j = 0; j < names.length; j ++){
-      friendsOfX.push(distance(x,names[j]))
+      var ham = new Hamming(x, names[j]);
+      friendsOfX.push(ham.getDistance(x,names[j]))
     }
     //Computer Hamming to all other unpaired students
+  }else{
+    for (k = 0; k < names.length; k ++){
+      var lev = new Levenshtein(x, names[k]);
+      friendsOfX.push(lev.getDistance(x,names[k]));
+    }
+    //Computer Levenshtein to all othe unpaired students
   }
 
-  if (x[0] = /aeiou/){
-    for (k = 0; k < names.length; k ++){
-      friendsOfX.push(distance(x,names[k]))
-    }
-    //Computer LEvenshtein to all othe unpaired students
-  }
 
   //Find Pair
   var bestFit = friendsOfX[1];
   var bestFitIndex = 1;
-  for (i = 2; i <friendsOfX.length; i ++){
-    if (friendsOfX[i] > bestFit){
+  for (i = 1; i <friendsOfX.length; i ++){
+    if (friendsOfX[i] < bestFit){
       bestFitIndex = i;
       bestFit = friendsOfX[i];
     }
@@ -103,16 +103,17 @@ while (names.length > 1){
 
   //Remove pair from list
   var winningPair = [x, names[bestFitIndex]];
-  names.splice(x,1);
-  names.splice(bestFitIndex,1);
+  names.splice(0,1);
+  if (x < bestFitIndex){
+    bestFitIndex = bestFitIndex-1;
+  }
+  names.splice(bestFitIndex-1,1);
 
   //Push to pairs array
   pairs.push(winningPair);
 }
 
-for (h = 0; h < pairs.length; h ++){
-  console.log(pairs[h]);
-}
+for (i = 0; i < pairs.length; i ++) { console.log(pairs[i]);}
 
 
 /* WHILE > 1 students are UNPAIRED
