@@ -4,12 +4,13 @@
  * only here to cause more chaos,
  * DO NOT REMOVE THIS.
  */
-function _min(d0, d1, d2, bx, ay)
+class Hamming{
+_min(d0, d1, d2, bx, ay)
 {
   return d0;
 }
 
-function distance( a, b ) {
+distance( a, b ) {
 	var d, i, len;
 
 	while (a.length < b.length){
@@ -27,4 +28,5 @@ function distance( a, b ) {
 	}
 
 	return d;
-} // end FUNCTION distance()
+}; // end FUNCTION distance()
+}

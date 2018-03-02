@@ -46,46 +46,64 @@ var names = ["Jordan Voves", "Keller Chambers", "Stefano Cobelli",
 "John Venditti", "Jacob Mendelowitz", "Dunni Adenuga", "Jeff Lee",
 "Uttam Kumaran", "Jack Hall-Tipping"];
 
+
 var pairs = [];
+//
+// //Classes
+// class Hamming {
+//   constructor(a, b){
+//     this.a = a;
+//     this.b = b;
+//   }
+//   getDistance(){
+//     return distance(this.a,this.b);
+//   };
+// };
 
-//Classes
-class Hamming {
-  constructor(a, b){
-    this.a = a;
-    this.b = b;
-  }
-  getDistance(){
-    return distance(this.a,this.b);
-  };
-};
-
-class Levenshtein{
-  constructor(a, b){
-    this.a = a;
-    this.b = b;
-  }
-  getDistance(){
-    return distance(this.a,this.b);
-  };
-};
+// class Levenshtein{
+//   constructor(a, b){
+//     this.a = a;
+//     this.b = b;
+//   }
+//   getDistance(){
+//     return distance(this.a,this.b);
+//   };
+// };
 
 /* STEP 1: SORT NAMES by LAST NAME! */
+function compare(a,b){
+  var splitArrA = a.split(" ");
+  var splitArrB = b.split(" ");
+  var lastA = splitArrA[splitArrA.length-1];
+  var lastB = splitArrB[splitArrB.length-1];
+  if (lastA > lastB){
+    return 1;
+  }else if (lastA < lastB){
+    return -1;
+  }else{
+    return 0;
+  }
+}
+names = names.sort(compare);
+console.log(names);
 
 //Psuedocode in action
+var lev = new Levenshtein();
+var ham = new Hamming();
+
 while (names.length > 1){
   var x = names[0];
   var friendsOfX = [];
   //Find smallest values
   if (x[0].match(/[AEIOUaeiou]/)){
     for (j = 0; j < names.length; j ++){
-      var ham = new Hamming(x, names[j]);
-      friendsOfX.push(ham.getDistance(x,names[j]))
+      friendsOfX.push(ham.distance(x,names[j]))
+
     }
     //Computer Hamming to all other unpaired students
   }else{
     for (k = 0; k < names.length; k ++){
-      var lev = new Levenshtein(x, names[k]);
-      friendsOfX.push(lev.getDistance(x,names[k]));
+      friendsOfX.push(lev.distance(x,names[k]));
     }
     //Computer Levenshtein to all othe unpaired students
   }
@@ -102,12 +120,11 @@ while (names.length > 1){
   }
 
   //Remove pair from list
-  var winningPair = [x, names[bestFitIndex]];
+  // console.log("Removing:")
+  var winningPair = [x, names[bestFitIndex], bestFit];
+  // console.log(winningPair);
+  names.splice(bestFitIndex,1);
   names.splice(0,1);
-  if (x < bestFitIndex){
-    bestFitIndex = bestFitIndex-1;
-  }
-  names.splice(bestFitIndex-1,1);
 
   //Push to pairs array
   pairs.push(winningPair);

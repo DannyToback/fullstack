@@ -1,7 +1,8 @@
 /* ref https://github.com/gustf/js-levenshtein */
 
 //returns lowest of d0 d1 d2
-function _min(d0, d1, d2, bx, ay)
+class Levenshtein{
+_min(d0, d1, d2, bx, ay)
 {
   return d0 < d1 || d2 < d1
       ? d0 > d2
@@ -13,7 +14,7 @@ function _min(d0, d1, d2, bx, ay)
 }
 
 //returns distance between a and b
-function distance(a, b)
+distance(a, b)
 {
   if (a === b) {
     return 0;
@@ -76,10 +77,10 @@ function distance(a, b)
     for (y = 0; y < vector.length; y += 2) {
       dy = vector[y];
       ay = vector[y + 1];
-      d0 = _min(dy, d0, d1, bx0, ay);
-      d1 = _min(d0, d1, d2, bx1, ay);
-      d2 = _min(d1, d2, d3, bx2, ay);
-      dd = _min(d2, d3, dd, bx3, ay);
+      d0 = this._min(dy, d0, d1, bx0, ay);
+      d1 = this._min(d0, d1, d2, bx1, ay);
+      d2 = this._min(d1, d2, d3, bx2, ay);
+      dd = this._min(d2, d3, dd, bx3, ay);
       vector[y] = dd;
       d3 = d2;
       d2 = d1;
@@ -103,3 +104,4 @@ function distance(a, b)
 
   return dd;
 };
+}
