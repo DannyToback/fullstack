@@ -1,0 +1,3 @@
+Label>Department: </Label>
+  <Input type="text" name="Department" ref={theInput}/>
+  <Button type="button" onClick={this.handleDeptChange}>Submit</Button>
