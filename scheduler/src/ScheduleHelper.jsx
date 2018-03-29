@@ -1,78 +1,74 @@
 import React, { Component } from 'react';
-import ScheduleIcon from './ScheduleIcon.jsx'
-import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+//import ScheduleIcon from './ScheduleIcon.jsx'
+import { Form, Label } from 'reactstrap';
+//Button, FormGroup, Input,FormText, Container
 
 class ScheduleHelper extends Component{
   constructor(props){
     super(props)
-    this.state = {courses:null}
+    this.state = {courses: null}
   //  this.state = {courseList:null}
     //fetch the courses
     //this.courses = {courses: null}
   }
 
-  componentWillMount(){
+  handleCourse(department){
     if (this.state.courses === null){
       //fetch the department course list
 
       const url =
         'https://www.eg.bucknell.edu/~amm042/service/q?' //+ ".json"
-        + "Department=" + this.props.department
-          //this.props.state + '/' + this.props.city.replace(' ', '_') + ".json"
-          console.log(this.props.department)
+        + "Department=" + department
+        console.log("FETCH")
         fetch(url)
-        .then(rsp => rsp.json())
-        .then(courses => {
-          console.log('got department', courses.message[0].Department)
-          this.setState({courses: courses.message[0].Department})
-          console.log(courses)
+        .then(rsp => {
+          return rsp.json()
+        }).then(courses => {
+        //  console.log('got department', courses) //.message[0].Department)
+          // this.listAllCourses(courses["message"])
+          this.setState({courses: courses["message"]})
+          console.log(this.state.courses)
+          //this.setState({courses: courses.message}) //.message[0].Department})
         })
         .catch(err=> console.log("ERR",err))
     }
-    // if (this.state.courseList === null){
-    //   const url2 =
-    //     'https://www.eg.bucknell.edu/~amm042/service/q?' //+ ".json"
-    //     + "Department=" + this.props.department + "/Title"
-    //       //this.props.state + '/' + this.props.city.replace(' ', '_') + ".json"
-    //       console.log(this.props.department)
-    //     fetch(url2)
-    //     .then(rsp => rsp.json())
-    //     .then(courses => {
-    //       console.log('got courses', courseList.message)
-    //       this.setState({courseList: courseList.message[0]})
-    //       console.log(courseList)
-    //     })
-    //     .catch(err=> console.log("ERR",err))
-    // }
   }
+
 
   handleDeptChange(e){
     e.preventDefault();
   //  if (this != undefined){
-    console.log(this.props.department)
-    console.log(this.menu.value)
-    this.setState({courses: (this.menu.value)})
+    this.state.department = this.menu.value
+    //    this.setState({courses: this.menu.value})
+    console.log("Changing Department to", this.menu.value)
+    this.handleCourse(this.menu.value)
+
   //  }
   }
 
-  listAllCourses(){
-    for (var i = 0; i < this.props.department.length; i++){
-      console.log(this.state)
-      if (this.props.department[i].Textbooks === ""){
-        //console.log(this.props.department[i].Title)
+  listAllCourses(courses){
+    console.log(courses)
+    var listOfCourses = []
+    if (courses !== undefined){
+      for (var i = 0; i < courses.length; i++){
+        listOfCourses.push(courses[i]["Title"])
+        if (courses[i].Textbooks === ""){
+          //console.logthis.props.department[i].Title)
+        }
       }
+      console.log(this.listOfCourses)
     }
+    const listItems = listOfCourses.map((text) => <li>{text}</li>);
   }
 
   render(){
     var yourDept = ""
-    var newDepartment = ""
+    console.log("rendering")
 
     if (this.state.courses){
-      yourDept = this.state.courses
+      yourDept = this.state.courses.Department
     }
-
+    console.log(yourDept)
 
     return  <div>
               <h1>Welcome to the no-Textbook scheduler</h1>
@@ -90,11 +86,33 @@ class ScheduleHelper extends Component{
                       <option value="CSCI">CSCI</option>
                     </select>
               </Form>
-              <p>Department selected: {yourDept}
-                  {this.listAllCourses()}
-              </p>
+               <p>
+                 Department selected: {this.menu}
+                 {this.courses}
+               </p>
               </div>
   }
 }
 
 export default ScheduleHelper
+
+
+
+    // setDepartments(json){
+    //   this.setState({courses: json["message"]})
+    // }
+    // if (this.state.courseList === null){
+    //   const url2 =
+    //     'https://www.eg.bucknell.edu/~amm042/service/q?' //+ ".json"
+    //     + "Department=" + this.props.department + "/Title"
+    //       //this.props.state + '/' + this.props.city.replace(' ', '_') + ".json"
+    //       console.log(this.props.department)
+    //     fetch(url2)
+    //     .then(rsp => rsp.json())
+    //     .then(courses => {
+    //       console.log('got courses', courseList.message)
+    //       this.setState({courseList: courseList.message[0]})
+    //       console.log(courseList)
+    //     })
+    //     .catch(err=> console.log("ERR",err))
+    // }
