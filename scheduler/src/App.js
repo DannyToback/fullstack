@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Container fluid={true}>
 
-            <ScheduleHelper department="ECON" />
+            <ScheduleHelper />
 
       </Container>
     );
